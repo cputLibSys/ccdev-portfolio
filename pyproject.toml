@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "portfolio"
+version = "0.1.0"
+description = "Portfolio Website for Cadet. C"
+authors = ["Cadet Cyuzuzo"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Django = "^3.0"
+whitenoise = {extras = ["brotli"], version = "^6.5.0"}
+gunicorn = "^21.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
