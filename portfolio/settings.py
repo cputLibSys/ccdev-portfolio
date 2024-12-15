@@ -25,18 +25,10 @@ if 'SECRET_KEY' in os.environ:
 else:
     SECRET_KEY='d#2y$31xf02mz%5ve%xqmvhhmj(w+8*sfqwbap#zxu#sfi1_cs'
 
-os.environ['_CLOUD_SDK_MISSING_CREDENTIALS']='../creds.json'
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:    
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-else:
-    ALLOWED_HOSTS.append('*')
-
+DEBUG = True
 
 # Application definition
 
@@ -96,35 +88,13 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DBS={
     'local':{
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": "portfolio_1guz",
-            "USER": "portfolio_1guz_user",
-            "PASSWORD": "Sizb7l5PwDBQqqzlntArY3GKNPAiWAxi",
-            "HOST": "dpg-ck5drf6i9prc73aasjo0-a",
-            "PORT": "5432",
-        },
-    'remote':{
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": "portfolio_al24",
-            "USER": "portfolio_al24_user",
-            "PASSWORD": "8BqSJM9XWuZDdNlgNNtWOc1GpbCDKleH",
-            #"HOST": "dpg-ck5drf6i9prc73aasjo0-a",
-            "HOST":'dpg-cq99c85ds78s739aqq2g-a.oregon-postgres.render.com',
-            "PORT": "5432",
-    },
-        'emote':{
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": "portfolio",
-            "USER": "cadet",
-            "PASSWORD": "0785610104",
-            #"HOST": "dpg-ck5drf6i9prc73aasjo0-a",
-            "HOST":'localhost',
-            "PORT": "5432",
-    }
+            "ENGINE": "django.db.sqlite3",
+            "NAME": BASE_DIR / "ccdev_db"
+        }
 }
 
 DATABASES = {
- 'default': DBS['remote']
+ 'default': DBS['local']
 }
 
 # Password validation
@@ -171,7 +141,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'management/static/'),
 ]
  
-if not DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
+if  DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     # Turn on WhiteNoise storage backend that takes care of compressing static files
