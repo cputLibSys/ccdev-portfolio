@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {%load static%}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+  <link rel="stylesheet" type="text/css" href="{%static 'management.css'%}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<script>
+    $(document).ready(function(){
+        $("").click(function(e){
+
+            proj_name=$("#projectModal .modal-title").text();
+            $(".download_proj").html('<div class="spinner-border spinner-border-sm" role="status">  <span class="sr-only"></span></div>');
+        
+            $.ajax({
+                url: '/getProject',
+                data:{
+                    'project_name': proj_name
+                },
+                success:function(data, stat){
+                    open("/"+data.download_dir);
+                    $(".download_proj").html('Download');
+                }
+            })
+        });
+    });
+     
+</script>
+<body>
+
+    <div class="container" style="padding-top:.8em">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" style="font-weight:bold; font-size: 30px;" href="/">C WORLD</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/static/resume.pdf">Resume / CV</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">More</a>
+                <ul class="dropdown-menu more-drop">
+                    <li><a class="dropdown-item" href="#">Blog</a></li>
+                    <li><a class="dropdown-item" href="#">Another link</a></li>
+                    <li><a class="dropdown-item" href="#">A third link</a></li>
+                  </ul>
+            </li>
+        </ul> 
+        <div class="msgs">
+            <div class="row" style="margin-bottom: 3em;">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6" style="padding-left: 3em; padding-right:3em;">
+                
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="search by email" name="email">
+                            </div>
+                            <div class="col-md-3">
+                            <button class="btn btn-primary">search</button>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select">
+                                    <option>Newest</option>
+                                    <option>Oldest</option>
+                                </select> 
+                            </div>
+                        </div>
+                    </form> 
+
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6" style="padding-left: 3em!important; padding-right: 3em!important">
+                    <div class="card msg ">
+                    <div class="card-body">Content</div>
+                    <div class="card-footer description">Footer</div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>    
+        </div>
+    </div>
+     
+</body>
+</html>

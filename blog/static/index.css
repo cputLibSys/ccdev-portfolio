@@ -1,0 +1,15 @@
+.content{
+    padding-top: 4em!important;
+}
+
+.code-interpreter{
+    background-color: black;
+    min-height: 5em!important;
+}
+
+.footer {
+    margin-top: 3em;
+    padding:.8em;
+    color: white!important;
+    box-shadow: 0px -4px 3px 5px rgb(13,110,253);
+}

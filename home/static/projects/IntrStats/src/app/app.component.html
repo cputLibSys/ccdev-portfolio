@@ -1,0 +1,195 @@
+<div class="container-fluid" style="overflow: hidden">
+  <div class="text-center title">
+    <h2 class="display-5">Interactive Stats!</h2>
+  </div>
+  <div class="Res">
+    <div class="">
+      Mean: <br/>
+      X ~ {{CusData.mean[0]}} <br/>
+      Y ~ {{CusData.mean[1]}}      
+    </div>
+    <div class="">
+      Mode: <br/>
+      X ~ {{CusData.mode[0]}} <br/>
+      Y ~ {{CusData.mode[1]}}
+    </div>
+    <div class="">
+      Range: <br/>
+      X ~ {{CusData.range[0]}} <br/>
+      Y ~ {{CusData.range[1]}}
+    </div>
+    <div class="">
+      S.D: <br/>
+      X ~ {{CusData.sd[0]}} <br/>
+      Y ~ {{CusData.sd[1]}}
+    </div>
+    <div>
+   
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-lg-3 col-sm-4 data">
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+              Data
+            </a>
+            <label class="btn btn-success importBtn">Import (Excel)
+              <input type="file" (change)="importFile($event)" accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" style="display: none">
+            </label>
+          </div>
+          <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body inData">
+              <div class="input-group">
+                <span class="input-group-text">X</span>
+                <textarea class="form-control" [(ngModel)]="xV" placeholder="eg. 12.3, 13, 17.2, 19"></textarea>
+              </div>
+              <div class="input-group">
+                <span class="input-group-text">Y</span>
+                <textarea class="form-control" [(ngModel)]="yV" placeholder="eg. 0.034, 0.1, 0.05, 0.8"></textarea>
+              </div>
+              <button (click)="updateData()" class="btn btn-primary">Add Raw Data</button>
+              <div class="statOps btn-block">
+                <button (click)="CusData.Ops.mean()" class="btn btn-primary">Mean</button>
+                <button (click)="CusData.Ops.mode()" class="btn btn-primary">Mode</button>
+                <button (click)="CusData.Ops.range()" class="btn btn-primary">Range</button>
+                <button (click)="CusData.Ops.sd()" class="btn btn-primary">SD</button>
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        <div class="card">
+          <div class="card-header">
+            <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+              Hypothesis Testing
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th col-span="2"></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>N (Sample Size)</td>
+                    <td class="datum"><input type="text" placeholder="eg. 150" [value]="this.Data.sampN" ></td>
+                  </tr>
+                  <tr>
+                    <td>Population Mean.</td>
+                    <td class="datum"><input type="text" placeholder="eg. 100" [value]="this.Data.popM" ></td>
+                  </tr>
+                  <tr>
+                    <td>Population SD.</td>
+                    <td class="datum"><input type="text" placeholder="eg. 43.7" [value]="this.Data.popSD" ></td>
+                  </tr>
+                  <tr>
+                    <td>Sample Mean</td>
+                    <td class="datum"><input type="text" placeholder="eg. 95.7" [value]="this.Data.sampM" ></td>
+                  </tr>
+                  <tr>
+                    <td>Sig. Level (%)</td>
+                    <td class="datum"><input type="text" placeholder="eg. 1" [value]="this.Data.sigL" ></td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn btn-primary">solve</button>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+              Random Variables
+            </a>
+          </div>
+          <div id="collapseTwo" class="collapse show" data-bs-parent="#accordion">
+            <div class="card-body">
+              <p>A random variable respresents the distribution of all possible outcomes of a random experiment. </p>
+              <p id="demo" class="collapse fade">
+                Random variables can be discrete or continious in which case, the distribution function is called a proabbility mass fucntion or probablility desnity function respectively.
+              </p> 
+              <a href="#" data-bs-toggle="collapse" data-bs-target="#demo">see more...</a> 
+
+              <select class="form-select text-center" [(ngModel)]="pick" style="margin-top:0.8em">
+                <option>Normal</option>
+                <option>Binomial</option>
+                <option>Possion</option>
+                <option>Exponential</option>  
+              </select>           
+
+              <div  class="distIn">
+              
+                X ~ N( <input type="text" [(ngModel)]="Distributions.normal.params[0]"/>, <input [(ngModel)]="Distributions.normal.params[1]" type="text"/> )
+                <div style="padding:1em 0 0 0em">
+                  <input type="text" [(ngModel)]="Distributions.normal.conditions[0]"/>< X < <input type="text" [(ngModel)]="Distributions.normal.conditions[1]"/>
+                </div>
+              </div>
+
+              <div  class="distIn" *ngIf="pick=='Binomial'">
+                <b>Binomially distributed.</b><br/>
+                X ~ B( <input type="text"/>, <input type="text"/>)<br/>
+              </div>
+              <div  class="distIn" *ngIf="pick=='Possion'">
+                <b>Poisson Distribution.</b><br/>
+                X ~ P( <input type="text"/>)<br/>
+              </div>
+              <div  class="distIn" *ngIf="pick=='Exponential'">
+                <b>Exponential distributed.</b><br/>
+                X ~ E( <input type="text"/>) 
+              </div>
+              <button class="btn btn-info" (click)="Distributions.normal.func(Distributions.normal.params[0], Distributions.normal.params[1]) ">compute</button>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+              Ven Diagrams
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+              Lorem ipsum..
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+    </div>
+    <div class="col-md-9 col-lg-9 col-sm-8 graph">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card" style="padding-bottom: 1em;">
+            <canvas id="cusChart" style="width:100%; height:28em;"></canvas>
+            <div class="chartControls">
+              <button class="btn btn-info">save chart</button>
+            </div>
+          </div>
+          </div>
+        <div class="col-md-4 distributions">
+          <div class="card">
+            <select class="form-select text-center">
+              <option>Normal</option>
+              <option>Binomial</option>
+              <option>Possion</option>
+              <option>Exponential</option>  
+            </select>
+            <div class="zls"><input type="text" (change)="z_change()" [(ngModel)]="z_leftL"/>< Z < <input type="text" [(ngModel)]="z_rightL"/></div>
+            <canvas id="myChart" style="width:100%; height:28em;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet> 

@@ -1,0 +1,104 @@
+#projectModal .modal-body{
+    padding: 0 !important;
+}
+.banner{
+    margin-top: 1em!important;
+    
+}
+.badge{
+    font-weight: bold;
+}
+.skill{
+    display: inline!important;
+}
+.links {
+    padding: 0em 1.8em .4em 5.8em !important;
+}
+.links button{
+    margin-top: .4em;
+    color:white;
+    font-weight: bold;
+}
+.more-drop{
+    border:2px solid #0d6efd!important;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+.more-drop li{
+    border-bottom: 1px solid #0d6efd!important;
+}
+.more-drop li a {
+    color: #0d6efd!important;
+}
+.header{
+    padding-top: 3.8em!important;
+    padding-bottom: 2.5em; 
+}
+
+
+.service .card-footer {
+    padding: 0!important;
+
+}
+
+.service .list-group{
+    border-radius: 0!important;
+    border: none!important;
+}
+.service .list-group-item{
+    padding-top:1em;
+    padding-bottom: 1em;
+    border-top: none!important;
+    border-left: none!important;
+    border-right: none!important;
+}
+.service .card-footer{
+    border-left-color: rgba(13,110,253) !important;
+    border-right-color: rgba(13,110,253) !important;
+}
+
+.service{
+    background-color: rgba(13,110,253);
+    font-weight: bold;
+    color:white;
+    border-color: rgba(13,110,253) !important ;
+}
+.service .description {
+    padding: 1em;
+    background-color: rgba(13, 109, 253, 0.94);
+    color: white;
+    border-color: rgba(13,110,253) ;
+}
+
+.project a {
+    text-decoration: none!important;
+}
+
+.contact .contact-body{
+    padding-top: 1em;
+}
+
+.contact .contact-form {
+    border: 1px solid #dee2e6;
+    padding-bottom: .8em;
+}
+
+.contact .contact-form input {
+    border-radius: 0px!important;
+}
+
+.contact .contact-info{
+   padding-left: 1em;
+}
+
+.contact .contact-info .info{
+    border: 1px solid #dee2e6;
+    padding: .8em;
+}
+
+.footer {
+    margin-top: 3em;
+    padding:.8em;
+    color: white!important;
+    box-shadow: 0px -1px 1px 2px rgb(13,110,253);
+}

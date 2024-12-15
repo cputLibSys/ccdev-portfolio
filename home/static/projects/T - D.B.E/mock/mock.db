@@ -1,0 +1,3 @@
+{name;['string', 64, False]}#{email;['string', 64, False]}#{number;['string', 12, False]}
+Cadet#cadetcyu@gmail.com#0785618354
+James#james822@gjail.com#0657296614

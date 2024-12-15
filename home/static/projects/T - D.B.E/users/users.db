@@ -1,0 +1,3 @@
+{username;["string", 64, False]}#{passkey;["string", 64, False]}#{privalages;["dict", 1024, False]}
+root#secret0112#{'ALL': ('w', 'r', 'u', 'd') }
+dan#5548jsl#{}

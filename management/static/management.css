@@ -1,0 +1,22 @@
+
+.msgs{
+    padding-top:5em!important;
+}
+
+.msg .card-footer{
+    border-left-color: rgba(13,110,253) !important;
+    border-right-color: rgba(13,110,253) !important;
+}
+
+.msg{
+ 
+    font-weight: bold;
+    color:white;
+    border-color: rgba(13,110,253) !important ;
+}
+.msg .description {
+    padding: 1em;
+    background-color: rgba(13, 109, 253, 0.94);
+    color: white;
+    border-color: rgba(13,110,253) ;
+}
