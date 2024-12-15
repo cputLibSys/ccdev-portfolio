@@ -3,3 +3,4 @@ django-jquery
 django-bootstrap-v5
 dj-database-url
 whitenoise
+gunicorn
