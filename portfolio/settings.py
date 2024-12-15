@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DBS={
     'local':{
-            "ENGINE": "django.db.sqlite3",
+            "ENGINE": "django.db.backends.sqlite3",
             "NAME": BASE_DIR / "ccdev_db"
         }
 }
