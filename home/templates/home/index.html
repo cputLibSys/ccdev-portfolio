@@ -20,15 +20,6 @@
             $(".bb").effect("bounce", {times: 2, distance: 10}, 1000);
         }, 1000);
 
-        setInterval(function(){
-            $(".service").animate(
-                {
-                    backgroundColor: "red!important"
-                    //backgroundImage: "linear-gradient(to right,  black, rgba(13, 110, 253)) !important"
-                }, 2000
-            )
-        }, 300);
-
         $(".download_proj").click(function(e){
 
             proj_name=$("#projectModal .modal-title").text();
@@ -53,7 +44,7 @@
             console.log(pos+" "+$(window).scrollTop());
             
             if($(window).scrollTop()>740){
-                elem.show("slide", 2500);
+                elem.show("slide", 1500);
                 //$(".contact").show("slide", { direction: "left" }, 10000);
                 
             }else{
@@ -192,7 +183,7 @@
             <div class=" container-fluid" style="padding-top: 1em;">
                 <div class="row">
                     {%for project in projects%}
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="padding-top: 1em;">
                         
                         <div class="card project">
                             <a href="#" name="{{project.name}}" onclick="openModal(event)" >

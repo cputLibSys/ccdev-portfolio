@@ -9,7 +9,7 @@ class Service(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=255)
     banner_url = models.CharField(max_length=255)
-    files=models.CharField(max_length=2048)
+    github_link=models.CharField(max_length=2048)
     description = models.CharField(max_length=255) 
 
 class Message(models.Model):
