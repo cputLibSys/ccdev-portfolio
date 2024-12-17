@@ -75,6 +75,31 @@
 
 }
 
+.reachout{
+    border:1px solid black;
+    border-radius: 4;
+    padding:.8em;   
+    min-height: 15em;
+    background-image: linear-gradient(to bottom right,  rgb(42, 37, 37), #145DA0);
+
+}
+
+.reachout .msg {
+    min-height: 6em;
+    border: 1px dashed  #a7b7c6;
+    background-color: white;
+    background-image: linear-gradient(to bottom right,  rgb(70, 70, 70), #3c81c1);
+}
+
+.reachout button {
+    margin-top:1em;
+    position: relative;
+    float: inline-end;
+    background-color:  #1b4873;
+    border-color:  #1b344b;
+    color:white;
+}
+
 .contact .contact-body{
     padding-top: 1em;
 }
@@ -98,8 +123,10 @@
 }
 
 .footer {
-    margin-top: 3em;
+    position: relative;
+    margin-top:  12 em !important;
     padding:.8em;
     color: white!important;
-    box-shadow: 0px -1px 1px 2px rgb(13,110,253);
+
+    background-image: linear-gradient(to bottom right,  black, rgba(13, 110, 253));
 }

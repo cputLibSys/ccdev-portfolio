@@ -18,7 +18,7 @@ def index(request):
     skills=[SKILL('C++', '#42047E', 3), SKILL('Javsacript', '#382592', 4),SKILL('HTML 5', '#2E46A6', 5), SKILL('CSS', '#2567BA', 4), SKILL('Python', '#1B87CD', 5), SKILL('AngularJs', '#07C9F5', 2), SKILL('C', '#11A8E1', 3)]
     services = Service.objects.all().values() 
     projects = Project.objects.all().values()
-    print('\n',services,'\n')
+    
     context ={  
         'skills':skills,
         'services': services, 
