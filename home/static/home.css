@@ -89,6 +89,7 @@
     border: 1px dashed  #a7b7c6;
     background-color: white;
     background-image: linear-gradient(to bottom right,  rgb(70, 70, 70), #3c81c1);
+    color: rgb(255, 252, 252);
 }
 
 .reachout button {
@@ -97,9 +98,13 @@
     float: inline-end;
     background-color:  #1b4873;
     border-color:  #1b344b;
-    color:white;
+    color:white!important;
+    padding: .4em;
 }
 
+.displayMsg{
+
+}
 .contact .contact-body{
     padding-top: 1em;
 }
@@ -124,9 +129,9 @@
 
 .footer {
     position: relative;
-    margin-top:  12 em !important;
+    margin-top:  12em !important;
     padding:.8em;
     color: white!important;
-
+    min-height: 10em;
     background-image: linear-gradient(to bottom right,  black, rgba(13, 110, 253));
 }

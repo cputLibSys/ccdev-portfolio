@@ -78,20 +78,24 @@
     
     function submitForm(){
      
+        console.log($(".msg").text());
+        
         data=$.ajax({
             url: '/submitMSG',
             data:{
-                name: $(".name").val(),
                 email: $(".email").val(),
-                message: $(".msg").val()
+                message: $(".msg").text(),
             },
             success: function(data, stat){
-                $(".contact-form").html(`
-                    <span class="alert alert-secondary">Message Has benn recorded. We'll get back to you shortly</span>
-                `);
+            $(".displayMsg").html(`
+                <div class="alert alert-secondary text-center">Your inquiry has benn recorded. We'll get back to you shortly</div>
+            `)
             }
+        }).then(function(){
+            $(".displayMsg").fadeOut(5000);
         });
 
+        console.log("logging");
     }
     
 </script>
@@ -238,12 +242,13 @@
             <div class="text-center">
                 <h1>CONTACT</h1>
             </div>
+            <div class="displayMsg"></div>
             <div class="row" style="margin-top: 2em;">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="reachout">
                         <div class="mb-3 mt-3">
-                            <input type="email" class="form-control" id="email" placeholder="your email" name="email">
+                            <input type="email" class="form-control email" id="email" placeholder="your email" name="email">
                         </div>
                         <div contenteditable="true" class="msg"></div>
 

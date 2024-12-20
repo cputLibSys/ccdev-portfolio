@@ -56,11 +56,10 @@ def getProject(request):
 
 def submitMSG(request):
     if request.method=="GET":
-        name=request.GET['name']
         email=request.GET['email']
         msg=request.GET['message']
-        print('D 1')
-        new_msg=Message(name=name, email=email, message=msg)
+        print('Svaing message')
+        new_msg=Message(name="customer", email=email, message=msg)
         new_msg.save()
-        print('D 2')
+        print('Message saved')
         return JsonResponse({"success": True})
