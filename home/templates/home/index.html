@@ -90,6 +90,8 @@
             $(".displayMsg").html(`
                 <div class="alert alert-secondary text-center">Your inquiry has benn recorded. We'll get back to you shortly</div>
             `)
+            $(".email").empty();
+            $(".msg").text("");
             }
         }).then(function(){
             $(".displayMsg").fadeOut(5000);

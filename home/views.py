@@ -59,6 +59,7 @@ def submitMSG(request):
         email=request.GET['email']
         msg=request.GET['message']
         print('Svaing message')
+        
         new_msg=Message(name="customer", email=email, message=msg)
         new_msg.save()
         print('Message saved')
