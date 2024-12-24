@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html >
 <head>
-  <title>CCDEV - Home"</title>
+  <title>CCDEV - Home</title>
   {% load bootstrap5 %}
   {%load static%}
   {% bootstrap_css %}
@@ -80,7 +80,7 @@
      
         console.log($(".msg").text());
         
-        data=$.ajax({
+       data=$.ajax({
             url: '/submitMSG',
             data:{
                 email: $(".email").val(),
@@ -90,7 +90,7 @@
             $(".displayMsg").html(`
                 <div class="alert alert-secondary text-center">Your inquiry has benn recorded. We'll get back to you shortly</div>
             `)
-            $(".email").empty();
+            $(".email").val("");
             $(".msg").text("");
             }
         }).then(function(){
@@ -141,7 +141,7 @@
                 <a class="nav-link" href="/static/resume.pdf">Resume / CV</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">More</a>
+                <a class="nav-link isDisabled dropdown-toggle" data-bs-toggle="dropdown" href="#" disabled="true">Comminfg soon...</a>
                 <ul class="dropdown-menu more-drop">
                     <li><a class="dropdown-item" href="#">Blog</a></li>
                     <li><a class="dropdown-item" href="#">Another link</a></li>
